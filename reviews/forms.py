@@ -1,9 +1,18 @@
 from django import forms
 
-TEXT_CHOICES = ((1, ("Yes")), (2, ("No")))
+PRIORITISE_BY_TEXT_YES = "1"
+PRIORITISE_BY_TEXT_NO = "2"
+
+HIGHEST_FIRST = "1"
+LOWEST_FIRST = "2"
+
+NEWEST_FIRST = "1"
+OLDEST_FIRST = "2"
+
+TEXT_CHOICES = ((PRIORITISE_BY_TEXT_YES, ("Yes")), (PRIORITISE_BY_TEXT_NO, ("No")))
 RATING_CHOICES = ((1, ("Highest First")), (2, ("Lowest First")))
 MINIMUM_RATING_CHOICES = ((1, ("1")), (2, ("2")), (3, ("3")), (4, ("4")), (5, ("5")))
-DATE_CHOICES = ((1, ("Newest First")), (2, ("Oldest First")))
+DATE_CHOICES = ((HIGHEST_FIRST, ("Newest First")), (OLDEST_FIRST, ("Oldest First")))
 
 
 class ReviewsForm(forms.Form):
