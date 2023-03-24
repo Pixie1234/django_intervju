@@ -10,11 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+PROJECT_PATH = os.path.realpath(os.path.join(os.path.dirname(__file__), ".."))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "reviews",
 ]
 
 MIDDLEWARE = [
@@ -50,11 +52,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "reviews_filter.urls"
-
+TEMPLATES_DIR = os.path.join(BASE_DIR, "reviews_filter", "templates")
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(PROJECT_PATH, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
